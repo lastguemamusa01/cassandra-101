@@ -23,6 +23,12 @@ CQL has for define data structures – CREATE TABLE, CREATE TRIGGER, CREATE INDE
 Cassandra does not have a fixed schema. Some rows may have different columns than other rows.
 
   
+  ![image](https://user-images.githubusercontent.com/25869911/137604887-2cee41c0-17be-4abf-8d7c-e4d96c655aeb.png)
+
+  
+  
+  
+  
  
 Cassandra eventyally consistent databases – replicas of a row may have different versions of the data for a short time.
 
@@ -100,6 +106,8 @@ CREATE TABLE app_instance (
 WITH CLUSTERING ORDER BY (proc_id DESC)
 
 Cassandra doesn’t provide to sort query results at query time, so we have to consider sort order when creating a table
+
+![image](https://user-images.githubusercontent.com/25869911/137604895-ddf37667-3658-4f5c-8b40-22f395a0643e.png)
 
  
 
@@ -247,6 +255,8 @@ Data modeling in releation databases – entitites and relationships
 
 	Have releation ships
  
+ ![image](https://user-images.githubusercontent.com/25869911/137604899-802a3b85-ab0e-4b71-8585-bb7736712cf2.png)
+
 
 When we desing data models in Casandra, we don’t start with entities. We start with the queries we want to run.
 what is that we want to report on ? we are concerned about application performance, so we might want a report on servers that are running with high CPU utilization
@@ -273,7 +283,8 @@ If you use storing large number of data points use tynyint, not use bigint.
 
 Optimization in Cassandra -instead of storing an entire row each time a new set of server metrics come in, we can store those metrics in a new column in an existing row. Use wide table instead narrow table.
 
- 
+ ![image](https://user-images.githubusercontent.com/25869911/137604901-da5490bd-598b-4001-b25f-84b92b2e4b1c.png)
+
 
  
 We use denormalizing instead of joining and sorting in Cassandra
@@ -595,7 +606,8 @@ We consider how our data will change, both in terms of new data  being added and
 
 
 
- 
+ ![image](https://user-images.githubusercontent.com/25869911/137604913-a49f85e9-070c-4ecd-b02d-07263ef522a8.png)
+
 
 
 
@@ -633,4 +645,3 @@ o	Network toplogy strategy is used when designing for multi-rack and multi-data 
 o	Using replicas introduces opportunities for copies of data to be out of sync or inconsistent.
 o	Read and write quorums are set according to your need for low-latency read and writes as weel as your need for consistent data.
 
-![image](https://user-images.githubusercontent.com/25869911/137604879-ddb125b6-d332-4ac3-9264-f1be4f4e2927.png)
